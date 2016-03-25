@@ -1,0 +1,9 @@
+<li class="list-group-item">
+  <p><%= user.name %>  |  <%= user.email %>
+    <% if current_user.id != user.id %>
+      <%= link_to 'delete', user, method: :delete,
+                                  remote: true,
+                                    data: { confirm: '确定删除该用户' } %>
+    <% end %>
+  </p>
+</li>

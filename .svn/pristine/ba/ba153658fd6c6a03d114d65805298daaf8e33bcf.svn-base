@@ -1,0 +1,2 @@
+<% provide(:title, 'User Edit') %>
+<h1>User Edit</h1>

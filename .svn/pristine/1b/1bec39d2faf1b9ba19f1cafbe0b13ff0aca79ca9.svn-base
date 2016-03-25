@@ -1,0 +1,12 @@
+<li>
+  <div class="panel panel-default">
+    <div class="panel-heading">poster: <%= post.user.name %></div>
+    <div class="panel-body">
+      <p><%= post.content %></p>
+      <div id="time">
+        <span id="comment"><%= link_to "comment", post %></span>
+        <span><%= format_time(post.created_at) %></span>
+      </div>
+    </div>
+  </div>
+</li>

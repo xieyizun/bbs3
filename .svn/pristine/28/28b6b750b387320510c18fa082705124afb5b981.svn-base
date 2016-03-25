@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#comment").hide();
+    $("#show_comment").click(function () {
+      $("#comment").toggle();
+    });
+  });
+</script>
+
+<h1>Post show</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">poster: <%= @post.user.name %></div>
+  <div class="panel-body">
+    <p><%= @post.content %></p>
+
+    <div id="time">
+      <button id="show_comment">comment</button>
+      <span><%= format_time(@post.created_at) %></span>
+    </div>
+
+    <div id="comment">
+      <div class="center">
+        <%= form_for(@comment, remote: true) do |f| %>
+            <%= f.text_area :content, placeholder: 'write your comment here' %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.submit 'commit' %>
+        <% end %>
+      </div>
+
+      <div id="comments">
+        <% if @post.comments.any? %>
+            <ul class="list-group">
+              <%= render @post.comments %>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

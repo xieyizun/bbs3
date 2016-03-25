@@ -1,0 +1,20 @@
+<% provide(:title, 'User Info') %>
+
+<h1>User Info</h1>
+<div class="center ">
+  <p>name: <%= @user.name %>  email: <%= @user.email %></p>
+
+  <%= form_for(@post) do |p| %>
+    <%= p.text_area :content %>
+    <%= p.submit 'commit', class: 'btn btn-large btn-primary' %>
+  <% end %>
+
+  <div id="myposts">
+    <% if @user.posts.any? %>
+      <ul>
+        <%= render @posts %>
+      </ul>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
+</div>

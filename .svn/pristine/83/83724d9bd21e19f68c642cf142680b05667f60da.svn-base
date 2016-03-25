@@ -1,0 +1,18 @@
+<h1>Login Account</h1>
+<div class="center">
+  <ul class="list-group">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+        <li class="list-group-item">
+          <p><%= f.label :email %></p>
+          <%= f.text_field :email %>
+        </li>
+        <li class="list-group-item">
+          <p><%= f.label :password %></p>
+          <%= f.password_field :password %>
+        </li>
+        <li class="list-group-item">
+          <%= f.submit 'login', class: 'btn btn-large btn-primary' %>
+        </li>
+    <% end %>
+  </ul>
+</div>

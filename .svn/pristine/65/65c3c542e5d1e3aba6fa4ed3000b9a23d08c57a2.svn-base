@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div id="header_left">
+    <ul class="nav navbar-nav pull-left">
+      <li id="logo">BBS</li>
+    </ul>
+  </div>
+
+  <div id="header_right">
+    <ul class="nav navbar-nav pull-right">
+      <li><%= link_to '首页', root_path %></li>
+      <% if sign_in? %>
+          <li id="fat-menu" class="dropdown">
+            <a href='#' class="dropdown-toggle" data-toggle="dropdown" style="color: rgb(255,255,255)">
+              账户 <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to '个人主页', current_user %></li>
+              <li><%= link_to '账号设置', edit_user_path(current_user) %></li>
+              <li><%= link_to '退出', signout_path, method: :delete, data: { confirm: '确定退出' } %></li>
+            </ul>
+          </li>
+          <% if current_user.admin %>
+            <li><%= link_to '管理员', users_path %></li>
+          <% end %>
+      <% else %>
+          <li><%= link_to '登录', signin_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

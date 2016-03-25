@@ -1,0 +1,9 @@
+<h1>Users List</h1>
+<ul class="list-group" id="users">
+  <%= render @users %>
+  <%= will_paginate @users %>
+</ul>
+
+
+
+

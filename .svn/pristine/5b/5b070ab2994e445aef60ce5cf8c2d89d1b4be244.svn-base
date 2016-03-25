@@ -1,0 +1,6 @@
+<% provide(:title, 'User Edit') %>
+<h1>User Edit</h1>
+
+<div class="center">
+
+</div>

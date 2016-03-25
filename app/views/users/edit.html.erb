@@ -1,0 +1,34 @@
+<% provide(:title, 'User Edit') %>
+
+<div>
+  <ul class="list-group">
+    <%= form_for @user do |f| %>
+        <li class="list-group-item">
+          <p><%= f.label :name, '新用户名' %></p>
+          <%= f.text_field :name, placeholder: '不填则默认为不修改' %>
+        </li>
+        <li class="list-group-item">
+          <p><%= f.label :email, '新邮箱' %></p>
+          <%= f.text_field :email, placeholder: '不填则默认为不修改' %>
+        </li>
+        <li class="list-group-item">
+          <p>旧密码</p>
+          <input id="old_password" name="old_password" placeholder="不填则默认不修改密码"></input>
+        </li>
+        <li class="list-group-item">
+          <p><%= f.label :password, '新密码' %></p>
+          <%= f.text_field :password, placeholder: '不填则默认为不修改' %>
+        </li>
+        <li class="list-group-item">
+          <p><%= f.label :password_confirmation, '再次输入新密码' %></p>
+          <%= f.text_field :password_confirmation, placeholder: '再次输入新密码' %>
+        </li>
+        <li class="list-group-item">
+          <div id="submit"><%= f.submit '修改',
+                                        class: 'btn btn-large btn-primary',
+                                         data: { confirm: '确定修改'} %>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>

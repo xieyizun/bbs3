@@ -1,0 +1,18 @@
+<div class="center">
+  <ul class="list-group">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+        <li class="list-group-item">
+          <p><%= f.label :email, '邮箱' %></p>
+          <%= f.text_field :email %>
+        </li>
+        <li class="list-group-item">
+          <p><%= f.label :password, '密码' %></p>
+          <%= f.password_field :password %>
+        </li>
+        <li class="list-group-item">
+          <%= f.submit '登录', class: 'btn btn-large btn-primary' %>
+          <span>还没有账号? <%= link_to '注册', signup_path %></span>
+        </li>
+    <% end %>
+  </ul>
+</div>

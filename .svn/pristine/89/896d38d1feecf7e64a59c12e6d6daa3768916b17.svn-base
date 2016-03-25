@@ -1,0 +1,26 @@
+<% provide(:title, 'User Info') %>
+
+<div>
+  <div>
+    <p>用户名: <%= @user.name %> </p>
+    <p>邮箱: <%= @user.email %></p>
+    <span>
+       <div>
+         <%= form_for(@post, remote: true) do |p| %>
+             <div><%= p.text_area :content, placeholder: '写帖子' %></div>
+             <div id="commit"><%= p.submit '发帖', class: 'btn btn-large btn-primary' %></div>
+         <% end %>
+       </div>
+    </span>
+  </div>
+
+  <div class="center">
+
+    <ul id="myposts">
+      <%= render @posts %>
+    </ul>
+    <div id="paging"><%= will_paginate @posts %></div>
+
+  </div>
+
+</div>
